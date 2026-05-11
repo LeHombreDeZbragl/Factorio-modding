@@ -1,0 +1,41 @@
+{
+  "name": "complex-space-age-science-packs",
+  "version": "1.0.0",
+  "title": "Complex Space Age Science Packs",
+  "author": "ThreeTimesWell",
+  "description": "This mod adds complexity to space age science packs, forcing more complete bases on the 4 new space age planets and the space platform.",
+  "factorio_version": "2.0",
+  "dependencies": [
+    "base >= 2.0",
+    "space-age >= 2.0",
+
+    "?harder-pack",
+    "?promethium-decay",
+
+    "?no-more-asteroid-quality",
+    "?platforms-do-not-delete-items",
+    "?Rocs-Improved-Platform-Drag",
+    "?space-platform-graveyard",
+    "?VFG-Cargo-Drops-Require-Research",
+
+    "?NoLavaInPipes",
+    "?tungsten_mining_require_lube",
+    "?behemoth-enemies",
+    "?BiolabsNeedNutrients",
+    "?glebaadditions",
+
+    "?diurnal-dynamics",
+    "?NightvisionOverhaulSpaceAge",
+    "?fire-lights",
+    "?realistic-flashlight-fixed",
+    "?Pro-Flashlight",
+    "?flamethrower-turret-balance",
+    "?LandmineExplosionsDoHurt",
+    "?quality-trains",
+
+    "?sa-science-packs",
+    "?visible-planets",
+    "?bioprocessing-tab"
+  ],
+  "space_travel_required": true
+}
