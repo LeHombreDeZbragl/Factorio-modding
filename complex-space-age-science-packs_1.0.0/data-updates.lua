@@ -1,9 +1,21 @@
 -- Complex Space Age science packs
 -- By ThreeTimesWell
 
+
+
 -- Space science
 
 if data.raw.recipe["space-science-pack"] then
+  data.raw.recipe["space-science-pack"].ingredients = {
+    {type = "item", name = "carbon",      amount = 1},
+    {type = "item", name = "ice",         amount = 1},
+    {type = "item", name = "iron-plate",  amount = 2},
+    {type = "item", name = "uranium-235", amount = 1},
+  }
+  data.raw.recipe["space-science-pack"].results = {
+    {type = "item", name = "space-science-pack", amount = 5},
+    {type = "item", name = "uranium-235",        amount = 1, probability = 0.9},
+  }
   local space_extras = {
     {type = "item", name = "automation-science-pack", amount = 1},
     {type = "item", name = "logistic-science-pack",   amount = 1},
