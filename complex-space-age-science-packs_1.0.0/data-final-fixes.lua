@@ -40,6 +40,7 @@ if asteroid_reprocessing then
         {type = "unlock-recipe", recipe = "advanced-oxide-asteroid-crushing"},
         {type = "unlock-recipe", recipe = "coal-synthesis"},
         {type = "unlock-recipe", recipe = "simple-coal-liquefaction"},
+        {type = "unlock-recipe", recipe = "ice-melting"},
     }
     for _, effect in pairs(new_effects) do
         table.insert(asteroid_reprocessing.effects, effect)
@@ -222,4 +223,20 @@ end
 local eff2 = data.raw["module"]["efficiency-module-2"]
 if eff2 and eff2.effect and eff2.effect.consumption then
     eff2.effect.consumption = -0.35
+end
+
+
+-- ============================================================
+-- 12. Space platform thruster - remove ice-melting unlock
+--     (ice-melting is now unlocked by asteroid-reprocessing)
+-- ============================================================
+local space_platform_thruster = data.raw["technology"]["space-platform-thruster"]
+if space_platform_thruster and space_platform_thruster.effects then
+    local kept = {}
+    for _, effect in pairs(space_platform_thruster.effects) do
+        if not (effect.type == "unlock-recipe" and effect.recipe == "ice-melting") then
+            table.insert(kept, effect)
+        end
+    end
+    space_platform_thruster.effects = kept
 end

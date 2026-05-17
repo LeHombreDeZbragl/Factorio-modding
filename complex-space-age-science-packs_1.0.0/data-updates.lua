@@ -19,8 +19,10 @@ if data.raw.recipe["space-science-pack"] then
   local space_extras = {
     {type = "item", name = "automation-science-pack", amount = 1},
     {type = "item", name = "logistic-science-pack",   amount = 1},
-    {type = "item", name = "chemical-science-pack",   amount = 1},
     {type = "item", name = "military-science-pack",   amount = 1},
+    {type = "item", name = "chemical-science-pack",   amount = 1},
+    {type = "item", name = "production-science-pack", amount = 1},
+    {type = "item", name = "utility-science-pack",    amount = 1},
   }
   for _, item in pairs(space_extras) do
     table.insert(data.raw.recipe["space-science-pack"].ingredients, item)
