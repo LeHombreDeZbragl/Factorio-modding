@@ -16,7 +16,7 @@ data.raw["lab"]["biolab"].science_pack_drain_rate_percent = 80
 --               items count as "crafted" for research trigger purposes)
 --    Prereqs  : space-science-pack only  (was metallurgic-science-pack)
 --    New effects added: advanced crushing recipes, coal synthesis,
---                       simple coal liquefaction
+--                       coal liquefaction
 -- ============================================================
 local asteroid_reprocessing = data.raw["technology"]["asteroid-reprocessing"]
 if asteroid_reprocessing then
@@ -39,7 +39,7 @@ if asteroid_reprocessing then
         {type = "unlock-recipe", recipe = "advanced-carbonic-asteroid-crushing"},
         {type = "unlock-recipe", recipe = "advanced-oxide-asteroid-crushing"},
         {type = "unlock-recipe", recipe = "coal-synthesis"},
-        {type = "unlock-recipe", recipe = "simple-coal-liquefaction"},
+        {type = "unlock-recipe", recipe = "coal-liquefaction"},
         {type = "unlock-recipe", recipe = "ice-melting"},
     }
     for _, effect in pairs(new_effects) do
@@ -240,3 +240,10 @@ if space_platform_thruster and space_platform_thruster.effects then
     end
     space_platform_thruster.effects = kept
 end
+
+
+-- ============================================================
+-- 13. Coal liquefaction - remove research completely
+--     (replaced by coal-liquefaction recipe unlocked via asteroid-reprocessing)
+-- ============================================================
+data.raw["technology"]["coal-liquefaction"] = nil

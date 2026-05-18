@@ -14,7 +14,7 @@ if data.raw.recipe["space-science-pack"] then
   }
   data.raw.recipe["space-science-pack"].results = {
     {type = "item", name = "space-science-pack", amount = 5},
-    {type = "item", name = "uranium-235",        amount = 1, probability = 0.9},
+    {type = "item", name = "uranium-235",        amount = 1, probability = 0.5},
   }
   local space_extras = {
     {type = "item", name = "automation-science-pack", amount = 1},
