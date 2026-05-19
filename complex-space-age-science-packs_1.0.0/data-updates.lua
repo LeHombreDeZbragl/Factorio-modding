@@ -110,3 +110,30 @@ if data.raw["recipe"]["cryogenic-science-pack"] then
     table.insert(data.raw["recipe"]["cryogenic-science-pack"].ingredients, item)
   end
 end
+
+-- Advanced carbonic asteroid crushing - increase carbon output from 5 to 10
+
+if data.raw["recipe"]["advanced-carbonic-asteroid-crushing"] then
+  if data.raw["recipe"]["advanced-carbonic-asteroid-crushing"].results then
+    for _, result in pairs(data.raw["recipe"]["advanced-carbonic-asteroid-crushing"].results) do
+      if result.name == "carbon" then
+        result.amount = 8
+      end
+      if result.name == "sulfur" then
+        result.amount = 4
+      end
+    end
+  end
+end
+
+-- Coal synthesis - decrease carbon input from 5 to 2
+
+if data.raw["recipe"]["coal-synthesis"] then
+  if data.raw["recipe"]["coal-synthesis"].ingredients then
+    for _, ingredient in pairs(data.raw["recipe"]["coal-synthesis"].ingredients) do
+      if ingredient.name == "carbon" then
+        ingredient.amount = 3
+      end
+    end
+  end
+end
