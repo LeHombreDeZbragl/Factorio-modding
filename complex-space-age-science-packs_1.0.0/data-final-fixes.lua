@@ -247,3 +247,18 @@ end
 --     (replaced by coal-liquefaction recipe unlocked via asteroid-reprocessing)
 -- ============================================================
 data.raw["technology"]["coal-liquefaction"] = nil
+
+
+-- ============================================================
+-- 14. Metallurgic science pack - explicit weight and stack size
+--     Each pack stored on a space platform contributes its weight
+--     to the platform's total mass, increasing drag and requiring
+--     more thrusters for Vulcanus travel.
+--     Weight setting is in kg; Factorio weight unit = grams.
+--     Stack size mirrors harder-pack (10 per slot).
+-- ============================================================
+local metallurgic_pack = data.raw["tool"]["metallurgic-science-pack"]
+if metallurgic_pack then
+    metallurgic_pack.weight = settings.startup["ga-metallurgic-weight"].value * 1000
+    metallurgic_pack.stack_size = 10
+end

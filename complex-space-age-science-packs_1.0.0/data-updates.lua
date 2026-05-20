@@ -120,7 +120,7 @@ if data.raw["recipe"]["advanced-carbonic-asteroid-crushing"] then
         result.amount = 8
       end
       if result.name == "sulfur" then
-        result.amount = 4
+        result.amount = 3
       end
     end
   end
