@@ -19,9 +19,6 @@ local TILE_WEIGHT_KG = 200      -- kg per foundation tile
 local SHAPE_CONST    = 0.8862   -- (pi/4)^0.5, circular platform assumption
 local DRAG_DENOM     = TILE_WEIGHT_KG * SHAPE_CONST  -- 177.24
 
--- Debug: print to game console every N ticks (300 = ~5 s). Set to 0 to disable.
-local LOG_INTERVAL   = 300
-
 -- Cached at load time (startup settings never change mid-game)
 local rocs_active       = false
 local drag_weight_kg    = 50000  -- default, overwritten on load
@@ -33,8 +30,6 @@ end
 
 script.on_init(function()
     cache_settings()
-    game.print("[MetalDrag] on_init: Rocs=" .. tostring(rocs_active) ..
-               "  drag_weight=" .. drag_weight_kg)
 end)
 script.on_load(cache_settings)
 
@@ -42,12 +37,7 @@ script.on_load(cache_settings)
 -- Per-tick drag correction
 -- ---------------------------------------------------------------------------
 local function on_tick()
-    local logging = LOG_INTERVAL > 0 and game.tick % LOG_INTERVAL == 0
-
     if not rocs_active then
-        if logging then
-            game.print("[MetalDrag] Rocs not detected – drag correction disabled.")
-        end
         return
     end
 
@@ -63,12 +53,6 @@ local function on_tick()
 
             local inv = hub.get_inventory(defines.inventory.hub_main)
             local pack_count = inv and inv.get_item_count("metallurgic-science-pack") or 0
-
-            if logging then
-                game.print(string.format(
-                    "[MetalDrag] '%s': inv=%s  packs=%d  speed=%.4f  weight=%.0f",
-                    platform.name, tostring(inv ~= nil), pack_count, v, platform.weight))
-            end
 
             if pack_count == 0 then goto continue_platform end
 
@@ -91,12 +75,6 @@ local function on_tick()
             local correction    = extra_drag * sign_v / w_kg / 60
 
             platform.speed = v - correction
-
-            if logging then
-                game.print(string.format(
-                    "[MetalDrag]   -> correction=%.6f  new_speed=%.4f",
-                    correction, platform.speed))
-            end
 
             ::continue_platform::
         end
