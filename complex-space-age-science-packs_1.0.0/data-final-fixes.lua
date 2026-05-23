@@ -87,22 +87,6 @@ end
 
 
 -- ============================================================
--- 6. Calcite processing - remove simple coal liquefaction
---    (simple coal liquefaction is now unlocked by asteroid-reprocessing)
--- ============================================================
-local calcite_proc = data.raw["technology"]["calcite-processing"]
-if calcite_proc and calcite_proc.effects then
-    local kept = {}
-    for _, effect in pairs(calcite_proc.effects) do
-        if not (effect.type == "unlock-recipe" and effect.recipe == "simple-coal-liquefaction") then
-            table.insert(kept, effect)
-        end
-    end
-    calcite_proc.effects = kept
-end
-
-
--- ============================================================
 -- 7. Advanced oxide asteroid crushing - add stone x3 to results
 --    Final results: ice x3, calcite x2, stone x3,
 --                   oxidic-asteroid-chunk x1 @ 5% chance
