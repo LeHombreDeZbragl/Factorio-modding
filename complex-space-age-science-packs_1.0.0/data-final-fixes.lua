@@ -103,13 +103,13 @@ end
 
 
 -- ============================================================
--- 7. Advanced oxide asteroid crushing - add stone x2 to results
---    Final results: ice x3, calcite x2, stone x2,
+-- 7. Advanced oxide asteroid crushing - add stone x3 to results
+--    Final results: ice x3, calcite x2, stone x3,
 --                   oxidic-asteroid-chunk x1 @ 5% chance
 -- ============================================================
 local oxide_recipe = data.raw["recipe"]["advanced-oxide-asteroid-crushing"]
 if oxide_recipe then
-    table.insert(oxide_recipe.results, {type = "item", name = "stone", amount = 2})
+    table.insert(oxide_recipe.results, {type = "item", name = "stone", amount = 3})
 end
 
 

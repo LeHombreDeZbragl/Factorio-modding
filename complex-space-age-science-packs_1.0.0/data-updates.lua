@@ -111,13 +111,13 @@ if data.raw["recipe"]["cryogenic-science-pack"] then
   end
 end
 
--- Advanced carbonic asteroid crushing - increase carbon output from 5 to 10
+-- Advanced carbonic asteroid crushing - increase carbon output from 5 to 9, increase sulfur output from 2 to 3
 
 if data.raw["recipe"]["advanced-carbonic-asteroid-crushing"] then
   if data.raw["recipe"]["advanced-carbonic-asteroid-crushing"].results then
     for _, result in pairs(data.raw["recipe"]["advanced-carbonic-asteroid-crushing"].results) do
       if result.name == "carbon" then
-        result.amount = 8
+        result.amount = 9
       end
       if result.name == "sulfur" then
         result.amount = 3
