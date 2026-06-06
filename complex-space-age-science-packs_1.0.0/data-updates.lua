@@ -126,7 +126,7 @@ if data.raw["recipe"]["advanced-carbonic-asteroid-crushing"] then
   end
 end
 
--- Coal synthesis - decrease carbon input from 5 to 2
+-- Coal synthesis - decrease carbon input from 5 to 3
 
 if data.raw["recipe"]["coal-synthesis"] then
   if data.raw["recipe"]["coal-synthesis"].ingredients then
@@ -135,5 +135,17 @@ if data.raw["recipe"]["coal-synthesis"] then
         ingredient.amount = 3
       end
     end
+  end
+end
+
+-- Scrap recycling - add 4% carbon output
+
+if data.raw.furnace and data.raw.furnace.recycler then
+    data.raw.furnace.recycler.result_inventory_size = 14
+end
+
+if data.raw["recipe"]["scrap-recycling"] then
+  if data.raw["recipe"]["scrap-recycling"].results then
+    table.insert(data.raw["recipe"]["scrap-recycling"].results, {type = "item", name = "carbon", amount = 1, probability = 0.04})
   end
 end
