@@ -41,7 +41,7 @@ Factorio loads mod files in a fixed order. Each stage runs after all mods comple
 
 - **`data-updates.lua`**: Adds all 6 base science packs as ingredients to space/metallurgic/agricultural/electromagnetic/cryogenic science pack recipes. Buffs advanced carbonic asteroid crushing (carbon 5→9, sulfur 2→3). Reduces coal synthesis carbon cost (5→3). Adds 4% carbon chance to scrap recycling.
 
-- **`data-final-fixes.lua`**: Biolab drain rate 50%→80%. Asteroid-reprocessing converted to trigger tech (collect 10 metallic chunks). Advanced asteroid processing loses 3 crushing recipe unlocks (moved to asteroid-reprocessing). Module tier-2 locked to space platforms (gravity=0); tier-3 locked per planet (productivity→Nauvis gravity=10, speed→Vulcanus gravity=40, quality→Fulgora gravity=8, efficiency→Gleba gravity=20). Efficiency module nerf (tier1 -30%→-20%, tier2 -40%→-35%). Coal liquefaction technology removed (recipe unlocked via asteroid-reprocessing instead). Gleba gains coal and larger stone patches in map gen.
+- **`data-final-fixes.lua`**: Biolab drain rate 50%→80%. Asteroid-reprocessing converted to trigger tech (collect 10 metallic chunks). Advanced asteroid processing loses 3 crushing recipe unlocks (moved to asteroid-reprocessing). Module tier-2 locked to space platforms (gravity=0); tier-3 locked per planet (productivity→Nauvis gravity=10, speed→Vulcanus gravity=40, quality→Fulgora gravity=8, efficiency→Gleba gravity=20). Efficiency module nerf (tier1 -30%→-20%, tier2 -40%→-35%). Coal liquefaction technology removed (recipe unlocked via asteroid-reprocessing instead). Gleba gets larger stone patches in map gen. Burnt spoilage recipe changed to 15 nutrients + 1 spoilage → 2 carbon.
 
 ## Settings
 

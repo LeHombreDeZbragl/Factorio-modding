@@ -113,20 +113,9 @@ end
 
 
 -- ============================================================
--- 9. Gleba - larger stone patches and add coal
+-- 9. Gleba - larger stone patches
 --    Stone: match Nauvis standard multipliers (frequency 1, size 1, richness 1)
---    Coal : add coal patches matching Nauvis standard multipliers
---
---    surface_conditions on the coal resource prototype are cleared so that
---    the map_gen_settings below can place coal on Gleba.  Coal will only
---    appear on planets whose map_gen_settings explicitly include it, so
---    other planets are not affected.
 -- ============================================================
-local coal_resource = data.raw["resource"]["coal"]
-if coal_resource and coal_resource.autoplace then
-    coal_resource.autoplace.surface_conditions = nil
-end
-
 local gleba = data.raw["planet"]["gleba"]
 if gleba then
     if not gleba.map_gen_settings then
@@ -145,8 +134,6 @@ if gleba then
     end
     -- Stone patches same size as on Nauvis
     ent.settings["stone"] = {frequency = 1, size = 1, richness = 1}
-    -- Add coal patches same size as on Nauvis
-    ent.settings["coal"]  = {frequency = 1, size = 1, richness = 1}
 end
 
 
@@ -231,3 +218,19 @@ end
 --     (replaced by coal-liquefaction recipe unlocked via asteroid-reprocessing)
 -- ============================================================
 data.raw["technology"]["coal-liquefaction"] = nil
+
+
+-- ============================================================
+-- 14. Burnt spoilage recipe - 15 nutrients + 1 spoilage → 2 carbon
+-- ============================================================
+local burnt_spoilage = data.raw["recipe"]["burnt-spoilage"]
+if burnt_spoilage then
+    burnt_spoilage.energy_required = 2
+    burnt_spoilage.ingredients = {
+        {type = "item", name = "nutrients", amount = 15},
+        {type = "item", name = "spoilage",  amount = 1},
+    }
+    burnt_spoilage.results = {
+        {type = "item", name = "carbon", amount = 2},
+    }
+end
